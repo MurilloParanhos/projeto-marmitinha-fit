@@ -1,4 +1,4 @@
-PRAGMA foreign_keys = ON;
+
 
 -- =========================================
 -- CRIAÇÃO DAS TABELAS
@@ -11,22 +11,22 @@ CREATE TABLE clientes (
 CREATE TABLE marmitas (
     id_marmita INTEGER PRIMARY KEY,
     nome TEXT NOT NULL,
-    preco REAL NOT NULL
+    preco NUMERIC(10,2) NOT NULL
 );
 
 CREATE TABLE combos (
     id_combo INTEGER PRIMARY KEY,
     nome_combo TEXT NOT NULL,
     quantidade INTEGER NOT NULL,
-    preco REAL NOT NULL
+    preco NUMERIC(10,2) NOT NULL
 );
 
 CREATE TABLE pedidos (
     id_pedido INTEGER PRIMARY KEY,
     id_cliente INTEGER NOT NULL,
-    data_pedido TEXT NOT NULL,
+    data_pedido DATE NOT NULL,
     id_combo INTEGER,
-    valor_total REAL NOT NULL,
+    valor_total NUMERIC(10,2) NOT NULL,
 
     FOREIGN KEY (id_cliente)
         REFERENCES clientes(id_cliente),
@@ -131,14 +131,8 @@ VALUES
 (5, 5, 5, 6),
 (6, 6, 10, 7),
 
-(7, 1, 6, 3),
-(8, 1, 8, 2),
-(9, 2, 4, 2),
-(10, 3, 9, 10),
 (11, 4, 5, 6),
 (12, 4, 7, 6),
-(13, 5, 6, 2),
-(14, 6, 1, 3),
 
 (15, 7, 1, 4),
 (16, 7, 6, 3),
